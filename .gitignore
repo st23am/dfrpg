@@ -13,3 +13,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+#vendor all the thigns
+bin
+vendor/ruby
