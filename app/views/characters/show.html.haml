@@ -1,0 +1,88 @@
+%section#character_info
+  #page-title
+    %h3 The Dresden Files Role-Playing Game
+    %h1 Character Sheet
+  #character-info
+    #character
+      %label Name
+      %p= @character.name
+    #player
+      %label Player
+      %p= @character.player
+
+  #aspects
+    %label Aspects
+    %label High Concept
+    %p= @character.high_concept_aspect
+    %label Trouble
+    %p= @character.trouble_aspect
+    %label Other Aspects
+    %p= @character.other_aspects
+  #skills
+    %label Skills
+    %p= @character.skills
+  #stress
+    %label Stress
+    %label Physical
+    %p= @character.physical_stress
+    %label Mental
+    %p= @character.mental_stress
+    %label Social
+    %p= @character.social_stress
+    %label Armor, ETC:
+    %p= @character.armor_misc
+    
+  #consequences
+    %label Consequences
+    %p= @character.consequences
+  #current_status
+    %label Power Level
+    %p= @character.power_level
+    %label Skill Cap
+    %p= @character.skill_cap
+    %label Skill Points
+    %p= @character.skill_points
+    %label Total Available
+    %p= @character.total_available
+    %label Base Refresh
+    %p= @character.base_refresh
+    %label Adjusted Refresh
+    %p= @character.adjusted_refresh
+    %label FP from last session
+    %p= @character.fp_from_last_session
+    %label Current Fate Points
+    %p= @character.current_fate_points
+  #stunts_and_powers
+    %label Stunts and Powers
+    %p= @character.stunts_and_powers
+  #phase_one
+    %label Phase one
+    %label Background
+    %p=@character.background
+    %label Phase Aspect
+    %p=@character.background_phase_aspect
+  #phase_two
+    %label Phase two
+    %label Rising Conflict
+    %p= @character.rising_conflict
+    %label Phase Aspect
+    %p= @character.rising_conflict_phase_aspect
+  #phase_three
+    %label Phase three
+    %label The Story
+    %p= @character.the_story
+    %label Phase Aspect
+    %p= @character.the_story_phase_aspect
+  #phase_four
+    %label Phase four
+    %label Guest Star
+    %p= @character.guest_star
+    %label Phase Aspect
+    %p= @character.guest_star_phase_aspect
+  #phase_five
+    %label Phase five
+    %label Guest Star Redux
+    %p= @character.guest_star_redux
+    %label Phase Aspect
+    %p= @character.guest_star_redux_phase_aspect
+  = link_to "Back to Characters", characters_path

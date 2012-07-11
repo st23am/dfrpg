@@ -1,0 +1,22 @@
+@import "foundation"
+body 
+  @include outerRow() 
+#page-title
+  @include column(7, center)
+  padding-bottom: 40px
+
+#character, #player, #aspects, #skills, #stress, #consequences, #current_status
+  @include column(6)
+  @extend .panel
+
+#stunts_and_powers 
+  @include column(12)
+  @extend .panel
+
+#phase_one, #phase_two, #phase_three, #phase_four, #phase_five
+  @include innerRow()
+  @extend .panel
+
+
+#phase_one input, #phase_two input, #phase_three input, #phase_four input, #phase_five input
+  @include column(6)

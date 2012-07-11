@@ -1,0 +1,8 @@
+%h1 List of Dresden Characters
+
+= link_to("Create a New Character", new_character_path, :class => "button")
+%ul
+- @characters.each do |character|
+  %li
+    = link_to("#{character.name} - #{character.high_concept_aspect} by: #{character.player}", character_path(character))
+

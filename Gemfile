@@ -8,13 +8,16 @@ gem 'rails', '3.2.6'
 gem 'sqlite3'
 gem 'haml'
 gem 'simple_form'
+gem 'inherited_resources'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
+  gem 'sass',         '~> 3.2.0.alpha.244'
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-  gem 'zurb-foundation'
+  gem 'compass-rails', '~> 1.0.3'
+  gem 'zurb-foundation', '~> 3.0.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
@@ -26,7 +29,6 @@ gem 'jquery-rails'
 
 group :development, :test do
   gem "rspec-rails"
-  gem "rspec-given"
 end
 
 group :test do

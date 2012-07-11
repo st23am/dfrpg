@@ -1,0 +1,50 @@
+%section#character_info
+  #page-title
+    %h3 The Dresden Files Role-Playing Game
+    %h1 Character Sheet
+  = simple_form_for @character do |f|
+    #character-info
+      #character
+        = f.input :name
+      #player
+        = f.input :player
+    #aspects
+      = f.input :high_concept_aspect
+      = f.input :trouble_aspect
+      = f.input :other_aspects
+    #skills
+      = f.input :skills
+    #stress
+      = f.input :physical_stress
+      = f.input :mental_stress
+      = f.input :social_stress
+      = f.input :armor_misc, :as => "string"
+    #consequences
+      = f.input :consequences
+    #current_status
+      = f.input :power_level
+      = f.input :skill_cap
+      = f.input :skill_points
+      = f.input :total_available
+      = f.input :base_refresh
+      = f.input :adjusted_refresh
+      = f.input :fp_from_last_session
+      = f.input :current_fate_points
+    #stunts_and_powers
+      = f.input :stunts_and_powers
+    #phase_one
+      = f.input :background
+      = f.input :background_phase_aspect
+    #phase_two
+      = f.input :rising_conflict
+      = f.input :rising_conflict_phase_aspect
+    #phase_three
+      = f.input :the_story
+      = f.input :the_story_phase_aspect
+    #phase_four
+      = f.input :guest_star
+      = f.input :guest_star_phase_aspect
+    #phase_five
+      = f.input :guest_star_redux
+      = f.input :guest_star_redux_phase_aspect
+    = f.button :submit
