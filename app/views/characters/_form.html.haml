@@ -2,7 +2,7 @@
   #page-title
     %h3 The Dresden Files Role-Playing Game
     %h1 Character Sheet
-  = simple_form_for @character do |f|
+  = simple_form_for resource, :url => user_characters_path do |f|
     #character-info
       #character
         = f.input :name

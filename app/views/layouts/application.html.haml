@@ -8,4 +8,11 @@
     = csrf_meta_tags
 
   %body
+    %header
+      %ul#navigation
+        %li 
+          = link_to("Home", root_path)
+        %li
+          = signed_in? ? link_to("Sign Out", sign_out_path, :method => :delete) : link_to("Sign in", sign_in_path)
+
     = yield

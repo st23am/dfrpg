@@ -1,5 +1,11 @@
 Dfrpg::Application.routes.draw do
-  resources :characters
+
+  resources :characters, :only => [:index, :show]
+
+  resources :users do
+    resources :characters
+  end
+
   root :to => 'characters#index'
 
   # The priority is based upon order of creation:

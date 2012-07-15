@@ -1,8 +1,39 @@
-%h1 List of Dresden Characters
+%h1.title List of Dresden Characters 
+#actions
+  = link_to("Create a New Character", new_user_character_path(current_user.id), :class => "button", :id => "new_character_button")
+%section#characters-list
+  %section#all-characters
+    %h4 Characters
+    %table
+      %thead
+        %th Name
+        %th High Concept 
+        %th Player
+      %tbody
+        - if @characters
+          - @characters.each do |character|
+            %tr
+              %td
+                = link_to("#{character.name}", character_path(character))
+              %td
+                = character.high_concept_aspect
+              %td
+                = character.player
 
-= link_to("Create a New Character", new_character_path, :class => "button")
-%ul
-- @characters.each do |character|
-  %li
-    = link_to("#{character.name} - #{character.high_concept_aspect} by: #{character.player}", character_path(character))
-
+  - if current_user.characters.any?
+    %section#your-characters
+      %h4 Your Characters
+      %table
+        %thead
+          %th Name
+          %th High Concept 
+          %th Player
+        %tbody
+          - current_user.characters.each do |character|
+            %tr
+              %td
+                = link_to("#{character.name}", character_path(character))
+              %td
+                = character.high_concept_aspect
+              %td
+                = character.player

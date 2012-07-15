@@ -1,11 +1,33 @@
 @import "foundation"
+
 body 
   @include outerRow() 
+
+h1.title
+  @include column(12)
+  padding-bottom: 30px
+
+#navigation
+  @extend .nav-bar
+
+#actions
+  @include column(12)
+
+#characters-list
+  @include innerRow()
+  @include column(12)
+
 #page-title
   @include column(7, center)
   padding-bottom: 40px
 
-#character, #player, #aspects, #skills, #stress, #consequences, #current_status
+#all-characters
+  @include column(6)
+
+#your-characters
+  @include column(6)
+
+#character, #player, #aspects, #skills, #stress, #consequences, #current_status, 
   @include column(6)
   @extend .panel
 
@@ -16,7 +38,6 @@ body
 #phase_one, #phase_two, #phase_three, #phase_four, #phase_five
   @include innerRow()
   @extend .panel
-
 
 #phase_one input, #phase_two input, #phase_three input, #phase_four input, #phase_five input
   @include column(6)
