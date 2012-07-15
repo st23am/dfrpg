@@ -1,6 +1,7 @@
 %h1.title List of Dresden Characters 
 #actions
-  = link_to("Create a New Character", new_user_character_path(current_user.id), :class => "button", :id => "new_character_button")
+  - if signed_in?
+    = link_to("Create a New Character", new_user_character_path(current_user.id), :class => "button", :id => "new_character_button")
 %section#characters-list
   %section#all-characters
     %h4 Characters
@@ -20,7 +21,7 @@
               %td
                 = character.player
 
-  - if current_user.characters.any?
+  - if signed_in? && current_user.characters.any?
     %section#your-characters
       %h4 Your Characters
       %table
