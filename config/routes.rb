@@ -1,8 +1,7 @@
 Dfrpg::Application.routes.draw do
 
   resources :characters, :only => [:index, :show]
-
-  resources :users do
+  resources :users, :controller => 'clearance/users' do
     resources :characters
   end
 

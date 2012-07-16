@@ -1,86 +1,35 @@
 class CharactersController < ApplicationController
   respond_to :html, :json
   before_filter :authorize, :only => [:new, :create, :destroy, :update, :edit]
+  before_filter :verify_ownership, :only => [:edit, :update, :destroy]
 
-  # GET /characters
-  # GET /characters.json
-  def index
-    @characters = Character.all
+  expose(:character)
+  expose(:characters) { Character.all }
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @characters }
-    end
-  end
-
-  # GET /characters/1
-  # GET /characters/1.json
-  def show
-    @character = Character.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @character }
-    end
-  end
-
-  # GET /characters/new
-  # GET /characters/new.json
-  def new
-    @character = Character.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @character }
-    end
-  end
-
-  # GET /characters/1/edit
-  def edit
-    @character = Character.find(params[:id])
-  end
-
-  # POST /characters
-  # POST /characters.json
   def create
-    @character = Character.new(params[:character])
-    @character.user_id = current_user
-    respond_to do |format|
-      if @character.save
-        format.html { redirect_to @character, notice: 'Character was successfully created.' }
-        format.json { render json: @character, status: :created, location: @character }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @character.errors, status: :unprocessable_entity }
-      end
+    character.user_id = current_user.id
+    if character.save
+      respond_with character
+    else
+      render :new
     end
   end
 
-  # PUT /characters/1
-  # PUT /characters/1.json
   def update
-    @character = Character.find(params[:id])
-
-    respond_to do |format|
-      if @character.update_attributes(params[:character])
-        format.html { redirect_to @character, notice: 'Character was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @character.errors, status: :unprocessable_entity }
-      end
+    character.user_id = current_user.id
+    if character.save
+      respond_with character
+    else
+      render :edit
     end
   end
 
-  # DELETE /characters/1
-  # DELETE /characters/1.json
-  def destroy
-    @character = Character.find(params[:id])
-    @character.destroy
+  private
 
-    respond_to do |format|
-      format.html { redirect_to characters_url }
-      format.json { head :no_content }
+  def verify_ownership
+    if current_user != character.user
+      raise ActiveRecord::RecordNotFound
     end
+    character
   end
 end

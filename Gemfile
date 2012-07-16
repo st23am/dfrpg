@@ -7,9 +7,9 @@ gem 'rails', '3.2.6'
 
 gem 'haml'
 gem 'simple_form'
-gem 'inherited_resources'
 gem 'clearance'
 gem 'heroku'
+gem 'decent_exposure'
 
 group :production do
   gem 'pg'
